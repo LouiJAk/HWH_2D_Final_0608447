@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;  //影用 系統集合 API 裡面包含協同程序
+using System.Collections;  //引用 系統集合 API 裡面包含協同程序
 
 public class HpManager : MonoBehaviour
 {

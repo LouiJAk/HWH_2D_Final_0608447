@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     public FixedJoystick joystick;
     [Header("變形元件")]
     public Transform tra;
-    [Header("動畫元件")]
-    public Animator ani;
     [Header("偵測範圍")]
     public float rangeAttack = 1.2f;
     [Header("血量")]
@@ -24,14 +22,14 @@ public class Player : MonoBehaviour
     [Header("攻擊力"), Range(0, 1000)]
     public float attack = 20;
     public Animator m_ani;
-    public float J,K;
 
     private bool isDead = false;
     private float hpMax;
 
-    void Start()
+    private void Start()
     {
         m_ani = gameObject.GetComponent<Animator>();
+        hpMax = hp;
     }
 
 
@@ -56,7 +54,7 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        //if (isDead) return;                     //如果 死亡 就跳出
+        if (isDead) return;                     //如果 死亡 就跳出
         
         float h = joystick.Horizontal;
         float v = joystick.Vertical;
