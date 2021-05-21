@@ -80,6 +80,9 @@ public class Player : MonoBehaviour
         tra.Translate(h * speed * Time.deltaTime, v * 0 * Time.deltaTime, 0);
 
     }
+
+  
+
     //要被按鈕呼叫必須設定為公開 public
     public void Attack()
     {
@@ -100,6 +103,7 @@ public class Player : MonoBehaviour
     /// <param name="damage">接受到的傷害直</param>
     public void Hit(float damage)
     {
+        print("受傷");
         hp -= damage;                                  //扣除傷害直
         hpManager.UpdateHpBar(hp, hpMax);              //更新血條
         StartCoroutine(hpManager.ShowDamage(damage));  //啟動協同程序(顯示傷害數值)

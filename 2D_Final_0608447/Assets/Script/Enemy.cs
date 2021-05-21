@@ -104,11 +104,12 @@ public class Enemy : MonoBehaviour
         //如果 計時器 大於等於 冷卻時間 就攻擊
         if(timer >= cdAttack)
         {
+            print("攻擊");
             timer = 0;
             // 2D 碰撞 = 2D 物理.覆蓋圓形範圍(中心點，半徑，圖層)
             Collider2D hit = Physics2D.OverlapCircle(transform.position, rangeAttack, 1 << 9);
-            //碰到的物件 取得元件<玩家>().受傷(攻擊力)
-            hit.GetComponent<Player>().Hit(attack);
+            if (hit && hit.gameObject.tag == "玩家") hit.gameObject.GetComponent<Player>().Hit(attack);
+
         }
 
                        
